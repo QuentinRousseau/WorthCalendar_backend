@@ -7,6 +7,10 @@
 /storage/pail
 /vendor
 .env.*
+
+.env
+.phpunit.result.cache
+
 !.env.example
 .phpactor.json
 .phpunit.result.cache
