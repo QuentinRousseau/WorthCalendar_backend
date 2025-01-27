@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::options('{any}', function () {
+    return response()->json([], 200);
+})->where('any', '.*');
+
 Route::get('/', function () {
     return redirect('/welcome');
 });
@@ -15,7 +19,6 @@ Route::get(
     function () {
         return response()->json(['message' => 'On recoit les rdv la !']);
     }
-    // [AppointmentController::class, 'index']
 );
 
 // Route::get('/test-db', function () {
@@ -26,6 +29,7 @@ Route::get(
 //         return 'Error: ' . $e->getMessage();
 //     }
 // });
+
 // Route::get('/write-test', function () {
 //     try {
 //         DB::table('test')->insert(['name' => 'Test SQLite']);

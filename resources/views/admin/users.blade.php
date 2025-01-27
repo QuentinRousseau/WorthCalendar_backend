@@ -13,8 +13,9 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Hierarchical Category</th>
+                <th>Hierarchical Superior ID</th>
                 <th>Created At</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +29,8 @@
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
+                <td>{{ $user->hierarchical_category }}</td>
+                <td>{{ $user->hierarchical_superior_id }}</td>
                 <td>{{ $user->created_at }}</td>
                 <td>
                     <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-primary" style="background-color: #ff0000; border-color: #ff0000;">Edit</a>

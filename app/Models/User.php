@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'hierarchical_category',
+        'hierarchical_superior_id',
     ];
 
     /**
@@ -44,5 +46,20 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
+
+    public function hierarchicalSuperior()
+    {
+        return $this->belongsTo(User::class, 'hierarchical_superior_id');
+    }
+
+    public function subordinates()
+    {
+        return $this->hasMany(User::class, 'hierarchical_superior_id');
     }
 }
